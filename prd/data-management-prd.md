@@ -62,7 +62,7 @@ Gestion de datos
 
 | Actor                    | Depende de         | Reponsabilidad en el sistema                                                  |
 | ------------------------ | ------------------ | ----------------------------------------------------------------------------- |
-| Gestion de datos         | Dueño de fabrica  | El encargado de pasarle todos los reportes generales al dueño de la fabrica  |
+| Gestion de datos         | Gerente            | El encargado de pasarle todos los reportes generales al dueño de la fabrica  |
 | Supervisor de almacen    | Jefe de produccion | El encargado de pasarle los reportes diarios de almacen a Gestion de datos    |
 | Supervisor de Produccion | Jefe de produccion | El encargado de pasarle los reportes diarios de produccion a Gestion de datos |
 
@@ -146,9 +146,9 @@ En gestion de datos los distintos reportes son entregados por los supervisores d
 
 | Roles                    | Responsabilidades                                                                                                                                    |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Jefe de Fabrica          | Recibir reportes y corroborar que todo este correcto                                                                                                 |
+| Gerente                  | Recibir reportes y corroborar que todo este correcto                                                                                                 |
 | Jefe de Produccion       | Supervisar todo el proceso de la fabrica, asi mismo autorizar los distintos reportes que se le son entregados                                        |
-| Gestion de recursos      | Encargado de digitalizar todos los reportes y sacar una conclusion final de cada uno para crear un nuevo reporte que es entregado al jefe de fabrica |
+| Gestion de datos         | Encargado de digitalizar todos los reportes y sacar una conclusion final de cada uno para crear un nuevo reporte que es entregado al jefe de fabrica |
 | Supervisor de Almacen    | Encargado de autorizar los reportes para que sean entregados al jefe de produccion, dirigir a todo el personal y hacer que sus datos cuadren         |
 | Supervisor de Produccion | Encargado de autorizar los reportes para que sean entregados al jefe de produccion, dirigir a todo el personal y hacer que sus datos cuadren         |
 
@@ -170,7 +170,7 @@ La planificacion para la gestion de datos inicia de los reportes que son enviado
 
 ### 5.1 Volumen fijo base de datos
 
-Aproximadamente los datos que son ingresados mensualmente son 360 unicamente de almacen y produccion 
+Aproximadamente los datos que son ingresados mensualmente son 360 unicamente de almacen y produccion
 240 archivos recibidos por documentos en linea de almacen
 60 archivos recibidos en fisico por almacen
 60 archivos recibidos en fisico por produccion
