@@ -2,7 +2,7 @@
 
 ## 1. Resumen
 
-El área de Gestión de Datos es responsable de consolidar toda la información generada por las diferentes áreas de la empresa para elaborar reportes generales dirigidos a la Gerencia. Actualmente, este proceso se realiza mediante hojas de Excel que requieren una gran cantidad de ingreso manual de información y el uso de numerosas fórmulas.
+El área de Gestión de Datos es responsable de consolidar toda la información generada por las diferentes unidades de la empresa para elaborar reportes generales dirigidos a la Gerencia. Actualmente, este proceso se realiza mediante hojas de Excel que requieren una gran cantidad de ingreso manual de información y el uso de numerosas fórmulas.
 
 ---
 
@@ -15,7 +15,7 @@ Desarrollar un nuevo sistema basado en Excel que reemplace el formulario actual 
 ### 2.2 Objetivos Específicos
 
 * Crear un formulario principal para el área de Gestión de Datos que reemplace al sistema utilizado actualmente.
-* Crear un formulario independiente para el área de Almacén que permita registrar las salidas de productos de forma sencilla y estandarizada.
+* Crear un formulario independiente para la unidad de Almacén que permita registrar las salidas de productos de forma sencilla y estandarizada.
 * Integrar ambos formularios para que la información registrada en Almacén se transfiera automáticamente al formulario principal de Gestión de Datos.
 * Implementar un sistema de reportes que permita generar información consolidada de manera más rápida y eficiente.
 
@@ -36,7 +36,7 @@ Ambos formularios estarán conectados entre sí para que la información registr
 
 * No se migrarán los datos históricos registrados en el sistema actual.
 * El formato general de ingreso de datos se mantendrá similar al utilizado actualmente para facilitar la adaptación de los usuarios.
-* El sistema estará enfocado únicamente en el registro y procesamiento de las ventas registradas por el área de Almacén.
+* El sistema estará enfocado únicamente en el registro y procesamiento de las ventas registradas por la unidad de Almacén.
 * Se continuará utilizando formularios como plataforma principal de trabajo.
 * Algunas operaciones seguirán dependiendo de fórmulas internas del sistema.
 
@@ -48,7 +48,7 @@ Ambos formularios estarán conectados entre sí para que la información registr
 
 El área de Gestión de Datos tiene la responsabilidad de recopilar, organizar, filtrar y consolidar la información de ventas para generar reportes dirigidos a la Gerencia.
 
-Actualmente, la información proviene del área de Almacén. Antes de llegar a Gestión de Datos, los registros son revisados y aprobados por el Supervisor de Almacén y posteriormente por el Jefe de Producción.
+Actualmente, la información proviene de la unidad de Almacén. Antes de llegar a Gestión de Datos, los registros son revisados y aprobados por el Supervisor de Almacén y posteriormente por el Jefe de Producción.
 
 El reporte de ventas generado por Almacén contiene la siguiente información:
 
