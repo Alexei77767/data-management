@@ -12,15 +12,15 @@
 
 | N.º | Fase            | Actividad                                                 | Duración | Semana | Responsable  | Entregable |
 | ---: | --------------- | --------------------------------------------------------- | :-------: | :----: | ------------ | ---------- |
-|    1 | Planificación  | Definición del proyecto                                  | 1 semana |   1   | Kevin y Luis | PRD        |
-|    2 | Planificación  | Investigacion acerca de como sera la interfaz del sistema | 1 semana |   2   | Kevin y Luis | PRD        |
-|    3 | Análisis       | Análisis del proceso de almacén                         | 3 semanas |   6   | Kevin y Luis | PRD        |
-|    4 | Diseño         | Diseño de la base de datos                               | 1 semana |   7   | Kevin        | Formulario |
-|    5 | Diseño         | Diseño de interfaces                                     | 1 semana |   8   | Kevin        | Formulario |
-|    6 | Desarrollo      | Desarrollo del sistema                                    | 1 semanas |   9   | Kevin        | Formulario |
+|  -.1 | Planificación  | Definición del proyecto                                  | 1 semana |   1   | Kevin y Luis | PRD        |
+|  -.2 | Planificación  | Investigacion acerca de como sera la interfaz del sistema | 1 semana |   2   | Kevin y Luis | PRD        |
+|  -.3 | Análisis       | Análisis del proceso de almacén                         | 3 semanas |   6   | Kevin y Luis | PRD        |
+|  @.4 | Diseño         | Diseño de la base de datos                               | 1 semana |   7   | Kevin        | Formulario |
+|  @.5 | Diseño         | Diseño de interfaces                                     | 1 semana |   8   | Kevin        | Formulario |
+|  @.6 | Desarrollo      | Desarrollo del sistema                                    | 1 semanas |   9   | Kevin        | Formulario |
 |    7 | Pruebas         | Pruebas y corrección de errores                          | 2 semanas |   11   | Kevin        | Formulario |
-|    8 | Implementación | Instalación y capacitación                              | 1 semana |   12   | Kevin        | Formulario |
-|    9 | Cierre          | Entrega del proyecto                                      | 1 semana |   13   | Kevin        | Formulario |
+|  +.8 | Implementación | Instalación y capacitación                              | 1 semana |   12   | Kevin        | Formulario |
+|  +.9 | Cierre          | Entrega del proyecto                                      | 1 semana |   13   | Kevin        | Formulario |
 
 ---
 
