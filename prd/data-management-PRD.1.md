@@ -10,7 +10,7 @@ El área de Gestión de Datos es responsable de consolidar la información gener
 
 ### 2.1 Objetivo General
 
-Desarrollar un nuevo sistema basado en Excel que reemplace el formulario actual de “Ventas de Producción”, simplificando el ingreso de datos, reduciendo errores y mejorando el desempeño global del proceso de elaboración de reportes.
+Desarrollar un nuevo sistema basado en Google Sheets que reemplace el formulario actual de “Ventas de Producción”, simplificando el ingreso de datos, reduciendo errores y mejorando el desempeño global del proceso de elaboración de reportes.
 
 ### 2.2 Objetivos Específicos
 
@@ -120,9 +120,9 @@ El sistema actual ha sido utilizado durante varios años con pocas modificacione
 | Actor                  | Depende de          | Responsabilidad                                                         |
 | ---------------------- | ------------------- | ----------------------------------------------------------------------- |
 | Gerente                | -                   | Recibir y revisar los reportes generales de la empresa.                 |
-| Gestión de Datos       | Gerente             | Consolidar la información y elaborar reportes generales.                |
-| Jefe de Producción     | Gerente             | Revisar y aprobar la información proveniente de Almacén.                |
-| Supervisor de Almacén  | Jefe de Producción  | Registrar y verificar las salidas de productos antes de su aprobación.  |
+| Gestión de Datos      | Gerente             | Consolidar la información y elaborar reportes generales.               |
+| Jefe de Producción    | Gerente             | Revisar y aprobar la información proveniente de Almacén.              |
+| Supervisor de Almacén | Jefe de Producción | Registrar y verificar las salidas de productos antes de su aprobación. |
 
 ---
 
@@ -152,24 +152,47 @@ Los pedidos se realizan por lotes y color, y los materiales que presentan variac
 
 ### 6.1 Requisitos funcionales
 
-El formulario de almacen capturara datos de: fecha, titulo, N.nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, resumen diario, resumen mensual, resumen anual, N. de lote, color, codigo de color y observaciones, los campos de: fecha, titulo, N.nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, resumen diario, resumen mensual y resumen anual. Deben ser obligatorios las partes de: N. de lote, color, codigo de color y observaciones. Pueden omitirse ya que para el apartado de gestion de datos no son muy necesarios, la transferencia automatica de los datos sera una vez al dia entre las 11pm-2am automaticamente para evitar errores, los calculos del sistema seran automaticos en cuanto a las multiplicaciones de las distintas ventas y los resuemenes diarios, mensuales y anuales. una vez ingresado la venta al dia siguiente se hara la verificacion de los datos en el area de administracion de datos, si existe algun tipo de error se notificara inmediatamente a la unidad de almacen para su edicion. 
+* El formulario de Almacén registrará los siguientes datos: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color, código de color y observaciones.
+* Los campos obligatorios serán: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color y código de color.
+* Las observaciones serán opcionales, pero estarán disponibles para registrar comentarios adicionales sobre cada salida.
+* El formulario de Gestión de Datos debe recibir automáticamente la información proveniente de Almacén una vez al día, entre las 23:00 y las 02:00, de manera definitiva y en una sola dirección, para minimizar el riesgo de errores manuales.
+* El sistema calculará automáticamente: kilos totales, precio total y los totales diarios, mensuales y anuales a partir de los registros ingresados.
+* El área de Gestión de Datos verificará la información ingresada el día siguiente. Si se detecta algún error, se notificará inmediatamente a la unidad de Almacén para su corrección.
 
 ### 6.2 Requisitos no funcionales
 
-El sistema es simple y deberia poder adaptarse muy bien a los usuarios por que es una copia del sistema que se usa actualmente pero mas automatizada, el sistema tendra un resndimiento optimo, en cuanto a la automatizacion de las formulas sera instantaneo dependiendo de la velocidad de internet una vez llenado los datos, la actualizacion de datos se hara un dia despues al llenado de datos para evitar errores, el formulario no tiene ninguna renstriccion de version, las reenstricciones de el formulario seran en las columnas en donde se encuentran formulas para automatizar los diferentes procesos de suma, multiplicaciones y etc. Estas columnas no se podran editar de ninguna manera, en caso de algun error o un dato desconocido el sistema automaticamente avisara que el dato no existe, el sistema podra actualizarse de manera sencilla en cualquier momento dependiendo de la actualizacion habra o no habra cambios en el manejo del sistema.
+* El sistema debe ser intuitivo y familiar para los usuarios porque se basa en el esquema actual, pero con mayor automatización.
+* El rendimiento debe ser óptimo en la ejecución de cálculos y actualizaciones de datos.
+* La actualización de datos programada debe realizarse un día después del ingreso para disminuir la probabilidad de errores.
+* No se requiere una versión específica de Google Sheets para el formulario, pero se utilizarán restricciones de celda en las columnas con fórmulas para impedir su edición directa.
+* Las celdas con fórmulas no se podrán editar manualmente; en caso de ingresar datos inválidos, el sistema mostrará una indicación de error.
+* La actualización de datos debe evitar la edición simultánea durante la sincronización, ya que se han identificado problemas de espacios en blanco en la hoja de Gestión de Datos cuando se edita mientras se sincroniza.
+* El diseño debe permitir actualizaciones y cambios futuros sin afectar la estructura general del sistema.
 
 ### 6.3 Requisitos de datos
 
-Los datos que se migraran para este nuevo sistema seran unicamente los datos del 2026 llenados en la base de datos de el area de administracion de datos, todos los datos ingresados seran de texto o numericos, el registro sera entre la unidad de almacen y el area de administracion de datos, todos los campos estan registrados con su respectivo formato, al intentar poner algun formato que no es la celda se mostrara en rojo indicando un error.
+* Solo se migrarán los datos correspondientes al año 2026.
+* Los datos ingresados pueden ser de tipo texto o numérico, siempre respetando el formato definido para cada campo.
+* El sistema debe validar los formatos y mostrar alertas cuando se detecte un valor incorrecto.
+* El registro debe incluir información de origen y, cuando corresponda, el estado de aprobación por la unidad de Almacén y el área de Gestión de Datos.
 
-### 6.4 Requisitos de integracion 
+### 6.4 Requisitos de integración
 
-Los tres formularios se conectaran entre si a travez de la nube, mediante scripts para copiarlos y actualizarlos, la sincroniacion se hara una vez al dia entre las 11pm hasta las 2am de manera automatica, el formulario mas solido y que llegaria a servir como copia de seguridad llegaria a ser el formulario de la unidad de almacen.
+* Los tres formularios se conectarán entre sí mediante un proceso automatizado en Google Sheets que copie y sincronice la información.
+* La sincronización se realizará una vez al día, entre las 23:00 y las 02:00, de forma automática y definitiva.
+* La transferencia de datos será unidireccional: desde el formulario de la unidad de Almacén hacia el formulario de Gestión de Datos.
+* El formulario de la unidad de Almacén servirá como fuente principal y copia de seguridad de los registros diarios.
+* La transferencia de datos debe ser segura y verificable para garantizar la consistencia entre los formularios.
 
 ### 6.5 Requisitos de calidad
 
-La medicion de reduccion de errores de typeo sera de un 100% por que el sistema te obliga a escribir correctamente cada dato, para evitar los registros duplicados el area de gestion de datos se tiene que revisar los datos ingresados manualmente en todo caso de existir algun error se debe notificar inmediatamente a almacen, los datos ingresados al sistema deben ser igualmente revisados con los reportes fisicos que se tienen, para el uso del formulario no se necesita mucha capacitacion ya que es facil de entender
+* El sistema debe reducir significativamente los errores de digitación mediante controles de validación y automatización.
+* Se deben evitar duplicados mediante reglas de validación y revisión de los registros en el área de Gestión de Datos.
+* Los datos ingresados deben cotejarse con los reportes físicos disponibles en caso de discrepancias.
+* El formulario debe ser sencillo de usar y requerir una capacitación mínima para los usuarios.
 
-### 6.6 Requisitos de exclusion
+### 6.6 Requisitos de exclusión
 
-El sistema bajo ningun concepto creara facturas, numeros de nota o informacion adicional nueva, unicamente sera para el registro de datos que ya se tiene en fisico.
+* El sistema no generará facturas ni creará números de nota nuevos.
+* No se incorporará información adicional que no provenga de los registros físicos existentes.
+* No se desarrollarán funciones de contabilidad, facturación o inventario completo fuera del alcance definido.
