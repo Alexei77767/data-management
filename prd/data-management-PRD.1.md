@@ -1,8 +1,8 @@
-# GESTIÓN DE DATOS - PRD
+# ADMINISTRACIÓN DE DATOS - PRD
 
 ## 1. Resumen
 
-El área de Gestión de Datos es responsable de consolidar la información generada por las distintas unidades de la empresa para elaborar los informes generales destinados a la Gerencia. Actualmente, este proceso se realiza mediante hojas de Excel que requieren un ingreso manual de datos intensivo y el uso de numerosas fórmulas.
+El Área de Administración de Datos es responsable de consolidar la información generada por las distintas unidades de la empresa para elaborar los informes generales destinados a la Gerencia. Actualmente, este proceso se realiza mediante hojas de Excel que requieren un ingreso manual de datos intensivo y el uso de numerosas fórmulas.
 
 ---
 
@@ -14,9 +14,9 @@ Desarrollar un nuevo sistema basado en Google Sheets que reemplace el formulario
 
 ### 2.2 Objetivos Específicos
 
-* Diseñar un formulario principal para el área de Gestión de Datos que sustituya al sistema actualmente utilizado.
+* Diseñar un formulario principal para el Área de Administración de Datos que sustituya al sistema actualmente utilizado.
 * Desarrollar un formulario independiente para la unidad de Almacén que permita registrar las salidas de producto de manera clara y estandarizada.
-* Integrar ambos formularios para que la información registrada en Almacén se transfiera automáticamente al formulario principal de Gestión de Datos.
+* Integrar ambos formularios para que la información registrada en Almacén se transfiera automáticamente al formulario principal de Administración de Datos.
 * Implementar un sistema de reportes que permita generar información consolidada de forma más rápida y eficiente.
 
 ---
@@ -28,10 +28,10 @@ Desarrollar un nuevo sistema basado en Google Sheets que reemplace el formulario
 Se desarrollará un sistema compuesto por tres formularios:
 
 1. Un formulario para el registro de salidas de productos en la unidad de Almacén.
-2. Un formulario que sirva de puente entre los formularios de “Almacén” y “Gestión de Datos”.
-3. Un formulario principal para el área de Gestión de Datos.
+2. Un formulario que sirva de puente entre los formularios de Almacén y Administración de Datos.
+3. Un formulario principal para el Área de Administración de Datos.
 
-Estos formularios estarán interconectados para que la información registrada en Almacén se incorpore automáticamente al sistema de Gestión de Datos, facilitando la generación de reportes de ventas de fábrica.
+Estos formularios estarán interconectados para que la información registrada en Almacén se incorpore automáticamente al sistema de Administración de Datos, facilitando la generación de reportes de ventas de fábrica.
 
 ### 3.2 Límites
 
@@ -47,9 +47,9 @@ Estos formularios estarán interconectados para que la información registrada e
 
 ### 4.1 Contexto Actual
 
-El área de Gestión de Datos es responsable de recopilar, organizar, filtrar y consolidar la información de ventas para generar los informes dirigidos a la Gerencia.
+El Área de Administración de Datos es responsable de recopilar, organizar, filtrar y consolidar la información de ventas para generar los informes dirigidos a la Gerencia.
 
-Actualmente, la información proviene de la unidad de Almacén. Antes de llegar a Gestión de Datos, los registros son revisados y aprobados por el Supervisor de Almacén y, posteriormente, por el Jefe de Producción.
+Actualmente, la información proviene de la unidad de Almacén. Antes de llegar al Área de Administración de Datos, los registros son revisados y aprobados por el Supervisor de Almacén y, posteriormente, por el Jefe de Producción.
 
 El reporte de ventas generado por Almacén contiene la siguiente información:
 
@@ -79,12 +79,12 @@ Almacén
 * **Observaciones:** Comentarios o información adicional sobre la venta.
 * **Color:** Color y código correspondiente del producto.
 
-Posteriormente, esta información se transcribe manualmente al sistema utilizado por Gestión de Datos.
+Posteriormente, esta información se transcribe manualmente al sistema utilizado por Administración de Datos.
 
 La estructura principal utilizada actualmente es la siguiente:
 
 ```
-Gestión de Datos
+Administración de Datos
 └── Ventas de Fábrica
     ├── Fecha
     ├── N.º de Nota
@@ -120,8 +120,8 @@ El sistema actual ha sido utilizado durante varios años con pocas modificacione
 | Actor                  | Depende de          | Responsabilidad                                                         |
 | ---------------------- | ------------------- | ----------------------------------------------------------------------- |
 | Gerente                | -                   | Recibir y revisar los reportes generales de la empresa.                 |
-| Gestión de Datos      | Gerente             | Consolidar la información y elaborar reportes generales.               |
-| Jefe de Producción    | Gerente             | Revisar y aprobar la información proveniente de Almacén.              |
+| Administración de Datos | Gerente             | Consolidar la información y elaborar reportes generales.                |
+| Jefe de Producción    | Gerente             | Revisar y aprobar la información proveniente de Almacén.                |
 | Supervisor de Almacén | Jefe de Producción | Registrar y verificar las salidas de productos antes de su aprobación. |
 
 ---
@@ -133,6 +133,8 @@ En la fábrica se manejan distintas unidades y presentaciones, organizadas por l
 Antes de convertirse en ovillos o conos, las fibras se ensamblan en moños que reúnen 10 madejas (un moño pesa 5 kg y cada madeja 0,5 kg). El peso de cada bolsa depende del tipo de material utilizado en la fabricación y de la presentación elegida por el cliente; por esta razón, algunas bolsas pueden pesar más y otras menos. El formato de pedido lo gestiona el encargado de comercialización, quien acuerda el precio con el cliente; la fábrica produce el lote solicitado y el pago se realiza tras la entrega, siendo gestionado por comercialización.
 
 Los pedidos se realizan por lotes y color, y los materiales que presentan variaciones de tono o defectos se comercializan como calidad “mixto” al 50 % del precio original, reuniendo piezas de distintos lotes. Asimismo, las piezas clasificadas como desperdicio se ofrecen a clientes a precio reducido. Todos los movimientos se registran por lote y color para asegurar la trazabilidad y facilitar los controles de calidad.
+
+En caso de que el producto presente alguna imperfeccion como ser su teñido primero se intenta volver al teñir, si se logra arreglar se toma como producto bueno, si no resulta el producto va a la seccion de recuperado, en donde se remata a mitad de precio, los conos que pesan menos de lo debido se sacan de los conos y se meten en una bolsa junto a otros que no cumplen el peso debido este es conocido como "Mixto" que son varios conos sin los conos de distintos colores.
 
 ## 5. Problemas Identificados
 
@@ -155,9 +157,9 @@ Los pedidos se realizan por lotes y color, y los materiales que presentan variac
 * El formulario de Almacén registrará los siguientes datos: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color, código de color y observaciones.
 * Los campos obligatorios serán: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color y código de color.
 * Las observaciones serán opcionales, pero estarán disponibles para registrar comentarios adicionales sobre cada salida.
-* El formulario de Gestión de Datos debe recibir automáticamente la información proveniente de Almacén una vez al día, entre las 23:00 y las 02:00, de manera definitiva y en una sola dirección, para minimizar el riesgo de errores manuales.
+* El formulario de Administración de Datos debe recibir automáticamente la información proveniente de Almacén una vez al día, entre las 23:00 y las 02:00, de manera definitiva y en una sola dirección, para minimizar el riesgo de errores manuales.
 * El sistema calculará automáticamente: kilos totales, precio total y los totales diarios, mensuales y anuales a partir de los registros ingresados.
-* El área de Gestión de Datos verificará la información ingresada el día siguiente. Si se detecta algún error, se notificará inmediatamente a la unidad de Almacén para su corrección.
+* El Área de Administración de Datos verificará la información ingresada el día siguiente. Si se detecta algún error, se notificará inmediatamente a la unidad de Almacén para su corrección.
 
 ### 6.2 Requisitos no funcionales
 
@@ -166,7 +168,7 @@ Los pedidos se realizan por lotes y color, y los materiales que presentan variac
 * La actualización de datos programada debe realizarse un día después del ingreso para disminuir la probabilidad de errores.
 * No se requiere una versión específica de Google Sheets para el formulario, pero se utilizarán restricciones de celda en las columnas con fórmulas para impedir su edición directa.
 * Las celdas con fórmulas no se podrán editar manualmente; en caso de ingresar datos inválidos, el sistema mostrará una indicación de error.
-* La actualización de datos debe evitar la edición simultánea durante la sincronización, ya que se han identificado problemas de espacios en blanco en la hoja de Gestión de Datos cuando se edita mientras se sincroniza.
+* La actualización de datos debe evitar la edición simultánea durante la sincronización, ya que se han identificado problemas de espacios en blanco en la hoja de Administración de Datos cuando se edita mientras se sincroniza.
 * El diseño debe permitir actualizaciones y cambios futuros sin afectar la estructura general del sistema.
 
 ### 6.3 Requisitos de datos
@@ -174,20 +176,20 @@ Los pedidos se realizan por lotes y color, y los materiales que presentan variac
 * Solo se migrarán los datos correspondientes al año 2026.
 * Los datos ingresados pueden ser de tipo texto o numérico, siempre respetando el formato definido para cada campo.
 * El sistema debe validar los formatos y mostrar alertas cuando se detecte un valor incorrecto.
-* El registro debe incluir información de origen y, cuando corresponda, el estado de aprobación por la unidad de Almacén y el área de Gestión de Datos.
+* El registro debe incluir información de origen y, cuando corresponda, el estado de aprobación por la unidad de Almacén y el Área de Administración de Datos.
 
 ### 6.4 Requisitos de integración
 
 * Los tres formularios se conectarán entre sí mediante un proceso automatizado en Google Sheets que copie y sincronice la información.
 * La sincronización se realizará una vez al día, entre las 23:00 y las 02:00, de forma automática y definitiva.
-* La transferencia de datos será unidireccional: desde el formulario de la unidad de Almacén hacia el formulario de Gestión de Datos.
+* La transferencia de datos será unidireccional: desde el formulario de la unidad de Almacén hacia el formulario de Administración de Datos.
 * El formulario de la unidad de Almacén servirá como fuente principal y copia de seguridad de los registros diarios.
 * La transferencia de datos debe ser segura y verificable para garantizar la consistencia entre los formularios.
 
 ### 6.5 Requisitos de calidad
 
 * El sistema debe reducir significativamente los errores de digitación mediante controles de validación y automatización.
-* Se deben evitar duplicados mediante reglas de validación y revisión de los registros en el área de Gestión de Datos.
+* Se deben evitar duplicados mediante reglas de validación y revisión de los registros en el Área de Administración de Datos.
 * Los datos ingresados deben cotejarse con los reportes físicos disponibles en caso de discrepancias.
 * El formulario debe ser sencillo de usar y requerir una capacitación mínima para los usuarios.
 
