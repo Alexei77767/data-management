@@ -10,7 +10,7 @@ El Área de Administración de Datos es responsable de consolidar la informació
 
 ### 2.1 Objetivo General
 
-Desarrollar un nuevo sistema basado en Google Sheets que reemplace el formulario actual de “Ventas de Producción”, simplificando el ingreso de datos, reduciendo errores y mejorando el desempeño global del proceso de elaboración de reportes.
+Desarrollar un nuevo sistema basado en Google Sheets que reemplace el formulario actual de “Ventas de Producto terminado”, simplificando el ingreso de datos, reduciendo errores y mejorando el desempeño global del proceso de elaboración de reportes.
 
 ### 2.2 Objetivos Específicos
 
@@ -55,14 +55,14 @@ El reporte de ventas generado por Almacén contiene la siguiente información:
 
 ```
 Almacén
-└── Ventas de Fábrica
+└── Ventas de Producto terminado
     ├── Fecha
     ├── N.º de Nota
     ├── Cliente
     ├── Título
     ├── Bolsas
     ├── Sueltos
-    ├── Cantidad Total
+    ├── Kilos Total (Kg)
     ├── Observaciones
     └── Color
 ```
@@ -70,12 +70,12 @@ Almacén
 **Descripción de los campos:**
 
 * **Fecha:** Fecha de salida del producto.
-* **N.º de Nota:** Identificador de la salida registrada, definido por el sistema mediante un contador.
+* **N.º de Nota:** Identificador de la salida registrada, definido por el sistema es autogenerado.
 * **Cliente:** Persona o empresa que recibe el producto.
-* **Título:** Especifica formato, título y material.
-* **Bolsas:** Cantidad de bolsas despachadas.
-* **Sueltos:** Cantidad de piezas vendidas fuera de bolsa.
-* **Cantidad Total:** Peso total de bolsas y piezas sueltas del producto vendido.
+* **Título:** Especifica el formato de presentacion (cono, ovillo y madeja), grosor (2/18, 2/12, 4/9) y tipo material (tipo N, HB, ALPACA).
+* **Bolsas:** Cantidad de bolsas despachadas se miden en unidades de cada uno.
+* **Sueltos:** Cantidad de piezas vendidas fuera de bolsa en unidades de cada uno.
+* **Cantidad Total:** Peso total de bolsas y piezas sueltas del producto vendido se mide en (Kg).
 * **Observaciones:** Comentarios o información adicional sobre la venta.
 * **Color:** Color y código correspondiente del producto.
 
@@ -85,31 +85,36 @@ La estructura principal utilizada actualmente es la siguiente:
 
 ```
 Administración de Datos
-└── Ventas de Fábrica
+└── Ventas de Producto terminado
     ├── Fecha
     ├── N.º de Nota
     ├── Cliente
     ├── Título
     ├── Bolsas
     ├── Sueltos
-    ├── Kilos Totales
-    ├── Precio Unitario
-    ├── Precio Total
-    ├── Resumen diario
-    ├── Resumen mensual
-    └── Resumen anual
+    ├── Kilos Totales (Kg)
+    ├── Precio Unitario (Bs)
+    └── Precio Total (Bs)
 ```
 
 **Descripción de los campos adicionales:**
 
-* **Kilos Totales:** Peso total entre bolsas y kilos vendidos.
-* **Precio Unitario:** Precio por kilogramo del producto.
-* **Precio Total:** Resultado de multiplicar los kilos totales por el precio unitario.
-* **Resumen diario:** Acumulado de ventas correspondiente al día.
-* **Resumen mensual:** Acumulado de ventas correspondiente al mes.
-* **Resumen anual:** Acumulado de ventas correspondiente al año.
+* **Kilos Totales:** Peso total en entre bolsas y kilos vendidos se mide en (Kg).
+* **Precio Unitario:** Precio por kilogramo del producto en (Bs).
+* **Precio Total:** Resultado de multiplicar los kilos totales por el precio unitario se mide en (Bs).
 
 Actualmente, gran parte de los reportes se generan mediante fórmulas y selección manual de datos, lo que incrementa el tiempo de trabajo y la posibilidad de errores.
+
+Almacen esta organizado por un grupo pequeño de 5 personas encargadas de distintas areas:
+
+```
+Almacen
+└── Jefe de almacen
+    ├── Encargado de ovillo
+    ├── Encargado de conos
+    ├── Encargado de repuestos
+    └── Encargado de embarcacion
+```
 
 ### 4.2 Antecedentes
 
@@ -117,24 +122,28 @@ El sistema actual ha sido utilizado durante varios años con pocas modificacione
 
 ### 4.3 Actores y Responsabilidades
 
-| Actor                  | Depende de          | Responsabilidad                                                         |
-| ---------------------- | ------------------- | ----------------------------------------------------------------------- |
-| Gerente                | -                   | Recibir y revisar los reportes generales de la empresa.                 |
-| Administración de Datos | Gerente             | Consolidar la información y elaborar reportes generales.                |
-| Jefe de Producción    | Gerente             | Revisar y aprobar la información proveniente de Almacén.                |
-| Supervisor de Almacén | Jefe de Producción | Registrar y verificar las salidas de productos antes de su aprobación. |
+| Actor                    | Depende de          | Responsabilidad                                                         |
+| ------------------------ | ------------------- | ----------------------------------------------------------------------- |
+| Gerente                  | -                   | Recibir y revisar los reportes generales de la empresa.                 |
+| Administración de Datos | Gerente             | Consolidar la información y elaborar reportes generales.               |
+| Jefe de Producción      | Gerente             | Revisar y aprobar la información proveniente de Almacén.              |
+| Supervisor de Almacén   | Jefe de Producción | Registrar y verificar las salidas de productos antes de su aprobación. |
 
 ---
 
 ### 4.5 Contexto de productos
 
-En la fábrica se manejan distintas unidades y presentaciones, organizadas por lotes que comparten color, presentación y un peso estándar —por ejemplo, conos de 205 kg y ovillos de 202 kg—. Además, según la presentación varía la cantidad de conos u ovillos que entran en una bolsa. Normalmente los ovillos se empaquetan en alrededor de 15 bolsitas con 5 unidades cada una, y los conos se agrupan en 4 o 6 unidades según el tipo de material o el peso.
+El formato del pedido lo gestiona el encargado de comercialización, quien acuerda el precio con el cliente. Posteriormente, la fábrica produce el lote solicitado y, tras la entrega, el pago se gestiona también por comercialización. Los pedidos se realizan por lotes y color. Cuando los materiales presentan variaciones de tono o defectos, se comercializan como calidad “mixto” al 50 % del precio original, reuniendo piezas de distintos lotes. Asimismo, las piezas clasificadas como desperdicio se ofrecen a clientes a precio reducido. Todos los movimientos se registran por lote y color para asegurar la trazabilidad y facilitar los controles de calidad.
 
-Antes de convertirse en ovillos o conos, las fibras se ensamblan en moños que reúnen 10 madejas (un moño pesa 5 kg y cada madeja 0,5 kg). El peso de cada bolsa depende del tipo de material utilizado en la fabricación y de la presentación elegida por el cliente; por esta razón, algunas bolsas pueden pesar más y otras menos. El formato de pedido lo gestiona el encargado de comercialización, quien acuerda el precio con el cliente; la fábrica produce el lote solicitado y el pago se realiza tras la entrega, siendo gestionado por comercialización.
+En la fábrica, las fibras primero se ensamblan en moños que reúnen 10 madejas. Cada moño pesa 5 kg y cada madeja pesa 0,5 kg. Luego, según la presentación elegida por el cliente, estos moños se transforman en madejas, ovillos o conos, organizados por lotes que comparten color, presentación y peso estándar —por ejemplo, conos de 205 kg y ovillos de 202 kg—. A partir de ese momento, según la presentación, varía la cantidad de unidades que se agrupan en una bolsa. Normalmente los ovillos se empaquetan en alrededor de 15 bolsitas con 5 unidades cada una, y los conos se agrupan en 4 o 6 unidades según el tipo de material (tipo N, HB o ALPACA) o el peso (Kg) Además, el peso de cada bolsa depende del material utilizado y de la presentación elegida, por lo que algunas bolsas pueden pesar más y otras menos.
 
-Los pedidos se realizan por lotes y color, y los materiales que presentan variaciones de tono o defectos se comercializan como calidad “mixto” al 50 % del precio original, reuniendo piezas de distintos lotes. Asimismo, las piezas clasificadas como desperdicio se ofrecen a clientes a precio reducido. Todos los movimientos se registran por lote y color para asegurar la trazabilidad y facilitar los controles de calidad.
+Si un producto presenta alguna imperfección, como un teñido defectuoso, primero se intenta volver a teñir. Si se logra corregir, se considera producto bueno; si no, pasa a la sección de recuperado, donde se remata a mitad de precio. Además, los conos que pesan menos de lo debido se separan y se colocan en una bolsa junto con otros que no cumplen el peso, formando lo que se conoce como “mixto”, compuesto por varios conos de distintos colores.
 
-En caso de que el producto presente alguna imperfeccion como ser su teñido primero se intenta volver al teñir, si se logra arreglar se toma como producto bueno, si no resulta el producto va a la seccion de recuperado, en donde se remata a mitad de precio, los conos que pesan menos de lo debido se sacan de los conos y se meten en una bolsa junto a otros que no cumplen el peso debido este es conocido como "Mixto" que son varios conos sin los conos de distintos colores.
+Las ventas son hechas tanto a clientes como a distribuidores, en el caso de distribuidores esta la casa colibri
+
+### 4.6 Vida de un lote
+
+Un lote una vez terminado el proceso de elaboracion llega como producto crudo, cuando se hace el pedido de algun lote con ciertas caracteristicas este lote crudo pasa por un proceso para ser producto terminado una vez llega a madejeado, pasa por tintoreria donde se le da el color del pedido, luego a secado por que el producto cuando pasa por tintoreria sale humedo, luego de esto va a devanado, donde se le da la presentacion elegida por el cliente, en caso de que sea un ovillo este pasa por la seccion de ovillado para darle esa presentacion, una vez concluido todo este proceso, pasa por embolsado para ser empaquetado segun el pedido del cliente y posteriormente se embarca a su destino.
 
 ## 5. Problemas Identificados
 
@@ -154,11 +163,11 @@ En caso de que el producto presente alguna imperfeccion como ser su teñido prim
 
 ### 6.1 Requisitos funcionales
 
-* El formulario de Almacén registrará los siguientes datos: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color, código de color y observaciones.
-* Los campos obligatorios serán: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas, sueltos, peso unitario de sueltos, número de lote, color y código de color.
+* El formulario de Almacén registrará los siguientes datos: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas (Bs), sueltos, peso unitario de sueltos (Kg), número de lote, color, código de color y observaciones.
+* Los campos obligatorios serán: fecha, título, número de nota, cliente, bolsas, peso unitario de bolsas (Kg), sueltos, peso unitario de sueltos (Kg), número de lote, color y código de color.
 * Las observaciones serán opcionales, pero estarán disponibles para registrar comentarios adicionales sobre cada salida.
 * El formulario de Administración de Datos debe recibir automáticamente la información proveniente de Almacén una vez al día, entre las 23:00 y las 02:00, de manera definitiva y en una sola dirección, para minimizar el riesgo de errores manuales.
-* El sistema calculará automáticamente: kilos totales, precio total y los totales diarios, mensuales y anuales a partir de los registros ingresados.
+* El sistema calculará automáticamente: kilos totales (Kg), precio total (Bs) y los totales diarios (Bs), mensuales (Bs) y anuales (Bs) a partir de los registros ingresados.
 * El Área de Administración de Datos verificará la información ingresada el día siguiente. Si se detecta algún error, se notificará inmediatamente a la unidad de Almacén para su corrección.
 
 ### 6.2 Requisitos no funcionales
