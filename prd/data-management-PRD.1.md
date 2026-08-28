@@ -106,7 +106,7 @@ Administración de Datos
 ### 4.1.1 Estructura propuesta del formulario de Almacén
 
 El formulario de Almacén conservará una estructura similar a la utilizada actualmente, incorporando los campos necesarios para validar y transferir la información al formulario de Administración de Datos.
-
+ 
 | Campo                         | Tipo de dato      | Obligatorio | Descripción                                                   |
 | ----------------------------- | ----------------- | ----------- | -------------------------------------------------------------- |
 | Fecha<br />                   | Fecha             | Sí         | Fecha de salida del producto.                                  |
@@ -120,7 +120,7 @@ El formulario de Almacén conservará una estructura similar a la utilizada actu
 | N.º de lote                  | Texto o numérico | Sí         | Identificador del lote del producto.                           |
 | Color                         | Texto             | Sí         | Nombre del color del producto.                                 |
 | Código de color              | Texto o numérico | Sí         | Código asociado al color del producto.                        |
-| Observaciones                 | Texto             | No          | Comentarios o información adicional sobre la salida.          |
+| Observaciones                 | Texto             | No          | Comentarios o información adicional sobre la salida.          | 
 
 Los campos calculados, como kilos totales, precio unitario y precio total, serán gestionados automáticamente por el sistema y no podrán editarse directamente en el formulario.
 
