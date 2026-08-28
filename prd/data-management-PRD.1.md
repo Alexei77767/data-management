@@ -103,27 +103,6 @@ Administración de Datos
 * **Precio Unitario:** Precio por kilogramo del producto en (Bs).
 * **Precio Total:** Resultado de multiplicar los kilos totales por el precio unitario se mide en (Bs).
 
-### 4.1.1 Estructura propuesta del formulario de Almacén
-
-El formulario de Almacén conservará una estructura similar a la utilizada actualmente, incorporando los campos necesarios para validar y transferir la información al formulario de Administración de Datos.
- 
-| Campo                         | Tipo de dato      | Obligatorio | Descripción                                                   |
-| ----------------------------- | ----------------- | ----------- | -------------------------------------------------------------- |
-| Fecha<br />                   | Fecha             | Sí         | Fecha de salida del producto.                                  |
-| Título                       | Texto             | Sí         | Formato, grosor y tipo de material del producto.               |
-| N.º de Nota                  | Texto o numérico | Sí         | Identificador de la salida registrado en el documento físico. |
-| Cliente                       | Texto             | Sí         | Persona o empresa que recibe el producto.                      |
-| Bolsas                        | Número entero    | Sí         | Cantidad de bolsas despachadas.                                |
-| Peso unitario de bolsas (Kg)  | Número decimal   | Sí         | Peso de cada bolsa.                                            |
-| Sueltos                       | Número entero    | Sí         | Cantidad de piezas despachadas fuera de bolsa.                 |
-| Peso unitario de sueltos (Kg) | Número decimal   | Sí         | Peso de cada pieza suelta.                                     |
-| N.º de lote                  | Texto o numérico | Sí         | Identificador del lote del producto.                           |
-| Color                         | Texto             | Sí         | Nombre del color del producto.                                 |
-| Código de color              | Texto o numérico | Sí         | Código asociado al color del producto.                        |
-| Observaciones                 | Texto             | No          | Comentarios o información adicional sobre la salida.          | 
-
-Los campos calculados, como kilos totales, precio unitario y precio total, serán gestionados automáticamente por el sistema y no podrán editarse directamente en el formulario.
-
 Actualmente, gran parte de los reportes se generan mediante fórmulas y selección manual de datos, lo que incrementa el tiempo de trabajo y la posibilidad de errores.
 
 Almacen esta organizado por un grupo pequeño de 5 personas encargadas de distintas areas:
