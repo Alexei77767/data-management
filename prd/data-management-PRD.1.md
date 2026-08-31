@@ -107,20 +107,20 @@ Administración de Datos
 
 El formulario de Almacén conservará una estructura similar a la utilizada actualmente, incorporando los campos necesarios para validar y transferir la información al formulario de Administración de Datos.
 
-| Campo                         | Tipo de dato      | Obligatorio | Descripción                                                   | Ejemplo                              |
-| ----------------------------- | ----------------- | ----------- | -------------------------------------------------------------- | ------------------------------------ |
-| Fecha                         | Fecha             | Sí         | Fecha de salida del producto.                                  | 01/01/2026                           |
-| Título                       | Texto             | Sí         | Formato, grosor y tipo de material del producto.               | cono 2/32, ovillo 2/9, ovillo 2/13 N |
-| N.º de Nota                  | Texto o numérico | Sí         | Identificador de la salida registrado en el documento físico. | 1135, 1136, 1137                     |
-| Cliente                       | Texto             | Sí         | Persona o empresa que recibe el producto.                      | Lecoña, Casa Colibri, Rosa          |
-| Bolsas                        | Número entero    | Sí         | Cantidad de bolsas despachadas.                                | 1,2,3,4,5                            |
-| Peso unitario de bolsas (Kg)  | Número decimal   | Sí         | Peso de cada bolsa.                                            | 6kg, 12kg 9kg                       |
-| Sueltos                       | Número entero    | Sí         | Cantidad de piezas despachadas fuera de bolsa.                 | 1,2,3,4,5,6                          |
-| Peso unitario de sueltos (Kg) | Número decimal   | Sí         | Peso de cada pieza suelta.                                     | 0.5, 1                               |
-| N.º de lote                  | Texto o numérico | Sí         | Identificador del lote del producto.                           | 26-51-33, 26-78-54                   |
-| Color                         | Texto             | Sí         | Nombre del color del producto.                                 | Rojo, Negro, Amarillo                |
-| Código de color              | Texto o numérico | Sí         | Código asociado al color del producto.                        | 0010, 1070, 0020                     |
-| Observaciones                 | Texto             | No          | Comentarios o información adicional sobre la salida.          | Devolucion, Fuera de tono            |
+| Campo                         | Tipo de dato      | Obligatorio | Descripción                                                   | Ejemplo                             |
+| ----------------------------- | ----------------- | ----------- | -------------------------------------------------------------- | ----------------------------------- |
+| Fecha                         | Fecha             | Sí         | Fecha de salida del producto.                                  | 01/01/2026                          |
+| Título                       | Texto             | Sí         | Formato, grosor y tipo de material del producto.               | [Yarn Count.md](<./Yarn%20Count.md>) |
+| N.º de Nota                  | Texto o numérico | Sí         | Identificador de la salida registrado en el documento físico. | 1135, 1136, 1137                    |
+| Cliente                       | Texto             | Sí         | Persona o empresa que recibe el producto.                      | [Customers.md](./Customers.md)       |
+| Bolsas                        | Número entero    | Sí         | Cantidad de bolsas despachadas.                                |Las bolsas pueden variar en cantidad, pueden ser de ovillos o conos|
+| Peso unitario de bolsas (Kg)  | Número decimal   | Sí         | Peso de cada bolsa.                                            | 6kg, 12kg 9kg                      |
+| Sueltos                       | Número entero    | Sí         | Cantidad de piezas despachadas fuera de bolsa.                 | los sueltos pueden variar en cantidad ya sean de ovillos o conos|
+| Peso unitario de sueltos (Kg) | Número decimal   | Sí         | Peso de cada pieza suelta.                                     | 0.5, 1                              |
+| N.º de lote                  | Texto o numérico | Sí         | Identificador del lote del producto.                           | 26-51-33, 26-78-54                  |
+| Color                         | Texto             | Sí         | Nombre del color del producto.                                 | Rojo, Negro, Amarillo               |
+| Código de color              | Texto o numérico | Sí         | Código asociado al color del producto.                        | 0010, 1070, 0020                    |
+| Observaciones                 | Texto             | No          | Comentarios o información adicional sobre la salida.          | Devolucion, Fuera de tono           |
 
 Los campos calculados, como kilos totales, precio unitario y precio total, serán gestionados automáticamente por el sistema y no podrán editarse directamente en el formulario.
 
