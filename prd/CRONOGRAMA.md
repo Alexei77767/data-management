@@ -3,41 +3,41 @@
 ## Información General
 
 - **Proyecto:** Sistema de Gestión para la Unidad de Almacenes y Administracion de Datos.
-- **Duración:** 7 semanas.
+- **Duración:** 8 DIAS.
 - **Metodología:** Cascada.
 
 ---
 
 ## Cronograma de Actividades
 
-| N.º | Fase            | Actividad                                                                                                                 | Duración | Semana | Responsable  | Entregable |
-| ---: | --------------- | ------------------------------------------------------------------------------------------------------------------------- | :-------: | :----: | ------------ | ---------- |
-|    1 | Planificación  | Definición del proyecto, investigacion acerca de como sera la interfaz del sistema y Análisis del proceso de almacén | 2 semanas |   2   | Kevin y Luis | PRD        |
-|    2 | Diseño         | Diseño de la base de datos, diseño de interfaces y desarrollo del sistema                                               | 2 semana |   4   | Kevin        | Formulario |
-|    3 | Pruebas         | Pruebas y corrección de errores                                                                                          | 2 semanas |   6   | Kevin        | Formulario |
-|    4 | Implementación | Instalación, capacitación y entrega del proyecto                                                                       | 1 semana |   7   | Kevin        | Formulario |
+| N.º | Fase            | Actividad                                                                         | Duración | Dia | Responsable | Entregable |
+| ---: | --------------- | --------------------------------------------------------------------------------- | :-------: | :-: | ----------- | ---------- |
+|    1 | Planificación  | Definir bien el formato de los reportes y los diferentes datos que estos incluyen |  2 dias  |  2  | kevin       | PRD        |
+|    2 | Diseño         | Diseño de los reportes, diseño de interfaces y desarrollo del sistema           |  2 dias  |  4  | Kevin       | SISTEMA    |
+|    3 | Pruebas         | Pruebas y corrección de errores                                                  |  3 dias  |  7  | Kevin       | SISTEMA    |
+|    4 | Implementación | Instalación, capacitación y entrega del proyecto                               |   1 dia   |  8  | Kevin       | SISTEMA    |
 
 ---
 
 ## Diagrama de Gantt
 
-| Actividad      | S1 | S2 | S3 | S4 | S5 | S6 | S7 |
-| -------------- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Planificación | █ | █ |    |    |    |    |    |
-| Diseño        |    |    | █ | █ |    |    |    |
-| Pruebas        |    |    |    |    | █ | █ |    |
-| Implementacion |    |    |    |    |    |    | █ |
+| Actividad      | D1 | D2 | D3 | D4 | D5 | D6 | D7 | D8 |
+| -------------- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Planificación | █  | █  |    |    |    |    |    |    |
+| Diseño        |    |    | █  | █  |    |    |    |    |
+| Pruebas        |    |    |    |    | █  | █  | █  |    |
+| Implementacion |    |    |    |    |    |    |    | █  |
 
 ---
 
 ## Hitos del Proyecto
 
-| Hito           | Semana |
-| -------------- | :----: |
-| Planificacion  |   2   |
-| Diseño        |   2   |
-| Pruebas        |   2   |
-| Implementacion |   1   |
+| Hito           | DIA |
+| -------------- | :-: |
+| Planificacion  |  2  |
+| Diseño        |  4  |
+| Pruebas        |  7  |
+| Implementacion |  8  |
 
 ---
 
