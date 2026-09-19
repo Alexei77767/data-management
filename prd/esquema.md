@@ -1,3 +1,4 @@
+
 erDiagram
     USERS ||--o{ NOTES : crea
     USERS ||--o{ AUDIT_LOG : registra
